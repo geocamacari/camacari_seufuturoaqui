@@ -6,52 +6,83 @@
     <title>Camaçari, seu Futuro é Aqui</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800;900&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5;
         }
         .section-title {
-            font-weight: bold;
-            color: #8A2BE2; /* Violeta */
+            font-weight: 800;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
         }
         .subsection-title {
-            font-weight: bold;
-            color: #9370DB; /* MediumPurple (Lilás) */
+            font-weight: 700;
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
         }
         .card {
             background-color: #ffffff;
-            border-radius: 1rem;
+            border-radius: 0.75rem;
             padding: 1.5rem;
             box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-            transition: transform 0.2s ease-in-out;
-            height: 100%; /* For grid layout alignment */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
             display: flex;
             flex-direction: column;
+            height: 100%;
         }
         .card-content {
             flex-grow: 1;
         }
         .card:hover {
             transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+        }
+        .highlight-text {
+            font-weight: 700;
+            color: #4a00e0;
         }
         .highlight-stat {
             font-size: 2.25rem;
             font-weight: 900;
-            color: #4A5568;
         }
         .highlight-label {
             color: #718096;
             font-size: 0.875rem;
         }
+        .lilac-title { color: #8e2de2; }
+        .violet-title { color: #4a00e0; }
         .chart-container {
             position: relative;
-            height: 350px;
+            height: 300px;
             width: 100%;
-            margin-top: auto; /* Pushes chart to the bottom of the flex container */
+            margin-top: auto;
+        }
+        .credits {
+            background-color: #333;
+            color: #e0e0e0;
+            padding: 2rem;
+            margin-top: 2rem;
+            border-radius: 0.75rem;
+            text-align: center;
+        }
+        .credits h3 {
+            font-weight: 600;
+            font-size: 1.00rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        .credits p {
+            margin: 0.25rem 0;
+            color: #f0f2f5;
+            font-size: 0.875rem;
+        }
+        .tab-link {
+            transition: all 0.2s ease-in-out;
         }
         /* Custom colors for charts to avoid white */
         Chart.defaults.color = '#333';
@@ -61,524 +92,502 @@
 <body class="text-gray-800">
 
     <!-- Header -->
-    <header class="bg-gradient-to-r from-violet-600 to-indigo-600 text-white text-center py-12 px-4 shadow-lg">
-        <h1 class="text-5xl font-black tracking-tight">Camaçari, seu Futuro é Aqui</h1>
-        <p class="mt-4 text-lg">Um panorama de oportunidades e vantagens para o seu negócio.</p>
-        <div class="mt-2 text-sm text-indigo-200">
-            <p>Elaborado em Junho de 2025</p>
-            <p>Coordenadoria de Planejamento e Projetos (CPP) / Secretaria de Desenvolvimento Urbano e Meio Ambiente (SEDUR) / PMC</p>
-        </div>
+    <header class="bg-gradient-to-r from-violet-600 to-indigo-700 text-white p-8 text-center rounded-b-2xl shadow-lg">
+        <h1 class="text-4xl md:text-5xl font-extrabold">Camaçari, seu Futuro é Aqui</h1>
+        <p class="mt-2 text-lg">Prefeitura Municipal de Camaçari-Ba</p>
     </header>
 
-    <main class="container mx-auto p-4 md:p-8 space-y-16">
+    <main class="container mx-auto p-4 md:p-8">
 
-        <!-- Seção de Introdução -->
-        <section id="introducao">
-            <h2 class="text-3xl section-title mb-4">1. Um Convite ao Futuro</h2>
+        <!-- Introdução e Metodologia -->
+        <section id="intro" class="mb-12">
+            <h2 class="section-title violet-title">Visão Estratégica para Investidores</h2>
             <div class="card">
-                <div class="card-content">
-                    <p class="text-justify text-lg leading-relaxed text-gray-700">
-                        O Projeto <strong>"Camaçari, seu Futuro é Aqui"</strong> é mais do que um painel de dados; é um convite para que você, investidor e empreendedor, se junte a nós na construção de uma das cidades mais dinâmicas do Brasil. Em uma iniciativa conjunta que une Desenvolvimento Econômico (SEDEC), Turismo (SETUR) e Desenvolvimento Urbano e Meio Ambiente (SEDUR), apresentamos uma visão clara e estratégica das oportunidades que florescem em nosso município.
-                    </p>
-                    <br>
-                    <p class="text-justify text-lg leading-relaxed text-gray-700">
-                        Neste infográfico, você encontrará informações consolidadas que revelam o porquê de Camaçari ser o destino certo para o seu investimento: uma economia robusta, um ambiente de negócios favorável, um capital humano qualificado e uma qualidade de vida ímpar. Convidamos você a explorar estes dados e a descobrir como o seu projeto pode prosperar em uma cidade que abraça a inovação, a sustentabilidade e o crescimento.
-                    </p>
-                </div>
-            </div>
+                <p class="mb-4">O Projeto "<b>Camaçari, seu Futuro é Aqui</b>" é mais do que um painel de dados; é um convite para que você, investidor e empreendedor, se junte a nós na construção de uma das cidades mais dinâmicas do Brasil. Em uma iniciativa conjunta que une Desenvolvimento Econômico (<b>SEDEC</b>), Turismo (<b>SETUR</b>), Desenvolvimento Urbano e Meio Ambiente (<b>SEDUR</b>) e Fazenda Municipal (<b>SEFAZ</b>), apresentamos uma visão clara e estratégica das oportunidades que florescem em nosso município.</p>
+                <p>Nos infográficos apresentados, você encontrará informações consolidadas que revelam o porquê de Camaçari ser um excelente destino para o seu investimento: uma economia robusta, um ambiente de negócios favorável, um capital humano qualificado e uma qualidade de vida em constante evolução. Convidamos você a explorar estes dados e a descobrir como o seu projeto pode prosperar em uma cidade que abraça a inovação, a sustentabilidade e o crescimento.</p>
+           	<br>
+		<p>A metodologia consiste na compilação e análise de indicadores econômicos, demográficos, sociais e de infraestrutura, organizados em <b>Eixos Estratégicos</b>. O objetivo é fornecer um panorama claro das oportunidades, dos pontos fortes e do potencial de crescimento de Camaçari, subsidiando decisões de investimento em um dos territórios mais dinâmicos do Nordeste brasileiro.</p>
+	    </div>
         </section>
-
-        <!-- Seção de Destaques Gerais -->
-        <section id="destaques">
-             <h2 class="text-3xl section-title mb-6 text-center">Camaçari em Números: Um Gigante Metropolitano</h2>
+        
+        <!-- Destaques Gerais -->
+        <section id="destaques" class="mb-12">
+             <h2 class="section-title violet-title text-center">Camaçari em Números: Um Gigante Metropolitano</h2>
              <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
                  <div class="card text-center bg-sky-50">
-                     <div class="card-content">
-                        <p class="highlight-stat text-sky-600">300.372</p>
-                        <p class="highlight-label">População Total (Censo 2022)</p>
-                        <p class="text-sm mt-2 text-gray-600">2º município mais populoso da RMS.</p>
-                     </div>
+                     <p class="highlight-stat text-sky-600">300.372</p>
+                     <p class="highlight-label">População Total (Censo 2022)</p>
+                     <p class="text-sm mt-2 text-gray-600">2º município mais populoso da RMS.</p>
                  </div>
                  <div class="card text-center bg-emerald-50">
-                     <div class="card-content">
-                        <p class="highlight-stat text-emerald-600">785,4 km²</p>
-                        <p class="highlight-label">Maior Território da RMS</p>
-                        <p class="text-sm mt-2 text-gray-600">Vasto potencial de expansão planejada.</p>
-                     </div>
+                     <p class="highlight-stat text-emerald-600">785,4 km²</p>
+                     <p class="highlight-label">Maior Território da RMS</p>
+                     <p class="text-sm mt-2 text-gray-600">Vasto potencial de expansão planejada.</p>
                  </div>
                  <div class="card text-center bg-amber-50">
-                     <div class="card-content">
-                        <p class="highlight-stat text-amber-600">R$ 3.943</p>
-                        <p class="highlight-label">Maior Salário Médio da RMS (2022)</p>
-                        <p class="text-sm mt-2 text-gray-600">Poder de compra elevado e sustentado.</p>
-                     </div>
+                     <p class="highlight-stat text-amber-600">R$ 3.943</p>
+                     <p class="highlight-label">Maior Salário Médio da RMS (2022)</p>
+                     <p class="text-sm mt-2 text-gray-600">Poder de compra elevado e sustentado.</p>
                  </div>
                  <div class="card text-center bg-rose-50">
-                     <div class="card-content">
-                        <p class="highlight-stat text-rose-600">Top 100</p>
-                        <p class="highlight-label">Melhores Cidades para Investir em Imóveis</p>
-                        <p class="text-sm mt-2 text-gray-600">Reconhecimento nacional (Revista Exame, 2023).</p>
-                     </div>
+                     <p class="highlight-stat text-rose-600">Top 100</p>
+                     <p class="highlight-label">Melhores Cidades para Investir em Imóveis</p>
+                     <p class="text-sm mt-2 text-gray-600">Reconhecimento nacional (Revista Exame, 2023).</p>
                  </div>
              </div>
         </section>
 
-        <!-- Seção de Mapa -->
-        <section id="geografia">
-            <h2 class="text-3xl section-title mb-6">2. Geografia e Localização Estratégica</h2>
-            <div class="card">
-                <div class="card-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                    <div class="md:order-2">
-                        <h3 class="text-2xl subsection-title mb-4">Coração da Região Metropolitana</h3>
-                        <p class="text-justify mb-4">Posicionado a apenas 50 km de Salvador, Camaçari é o epicentro logístico e de desenvolvimento da RMS. A localização privilegiada facilita o escoamento da produção e o acesso a mercados, conectando o município aos principais modais de transporte do estado.</p>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
-                           <li>Acesso direto à <strong>Via Parafuso (BA-535)</strong> e à <strong>Estrada do Coco (BA-099)</strong>.</li>
-                           <li>Proximidade estratégica com o <strong>Aeroporto Internacional de Salvador</strong> e com o <strong>Porto de Salvador</strong>.</li>
-                           <li>Conexão com os principais eixos rodoviários federais que cortam a Bahia.</li>
-                        </ul>
-                    </div>
-                    <div class="md:order-1 h-96 md:h-full rounded-lg overflow-hidden shadow-lg">
-                        <iframe 
-                            class="w-full h-full"
-                            style="border:0;"
-                            loading="lazy"
-                            allowfullscreen
-                            srcdoc="
-                                <!DOCTYPE html>
-                                <html lang='pt-BR'>
-                                <head>
-                                    <meta charset='UTF-8'>
-                                    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-                                    <title>Mapa de Camaçari</title>
-                                    <link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css' integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=' crossorigin=''/>
-                                    <style>
-                                        html, body, #map { height: 100%; margin: 0; padding: 0; font-family: sans-serif; }
-                                    </style>
-                                </head>
-                                <body>
-                                    <div id='map'></div>
-                                    <script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js' integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=' crossorigin=''></script>
-                                    <script>
-                                        const map = L.map('map').setView([-12.6978, -38.3242], 10);
-                                        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                            attribution: '&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a>'
-                                        }).addTo(map);
-                                        L.marker([-12.6978, -38.3242]).addTo(map)
-                                         .bindPopup('<b>Camaçari, Ba</b><br>(um gigante metropolitano)').openPopup();
-                                    </script>
-                                </body>
-                                </html>
-                            ">
-                        </iframe>
+        <!-- Abas de Navegação -->
+        <div class="mb-8 border-b border-gray-200">
+            <nav class="flex flex-wrap -mb-px" aria-label="Tabs">
+                <a href="#geografia" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Geografia e Logística</b></a>
+                <a href="#economia" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Economia e Mercado</b></a>
+                <a href="#vetores" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Vetores de Crescimento</b></a>
+                <a href="#turismo" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Turismo e Cultura</b></a>
+                <a href="#imobiliario" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Mercado Imobiliário</b></a>
+                <a href="#social" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Capital Humano e Social</b></a>
+                <a href="#governança" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Governança e Incentivos</b></a>
+                <a href="#sustentabilidade" class="tab-link border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300 w-1/2 sm:w-1/3 md:w-auto text-center py-4 px-2 border-b-2 font-medium text-sm"><b>Sustentabilidade</b></a>
+            </nav>
+        </div>
+
+        <!-- Conteúdo das Seções -->
+        <div id="tab-content">
+            <!-- Geografia e Logística -->
+            <section id="geografia" class="tab-pane">
+                <h2 class="section-title violet-title">Geografia e Localização Estratégica</h2>
+                <div class="card">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                        <div class="md:order-2">
+                            <h3 class="subsection-title lilac-title">Coração da Região Metropolitana</h3>
+                            <p class="text-justify mb-4">Posicionado a apenas 50 km do centro de Salvador, Camaçari é o epicentro logístico e de desenvolvimento da RMS. A localização privilegiada facilita o escoamento da produção e o acesso a mercados, conectando o município aos principais modais de transporte do estado.</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-700">
+                               <li>Acesso direto à <strong>Via Parafuso (BA-535)</strong>, à <strong>Estrada do Coco (BA-099), a <strong>BA-093</strong> e ao Canal de Tráfego (BA-524).</li>
+                               <li>Proximidade estratégica com o <strong>Aeroporto Internacional de Salvador</strong> e com os <strong>Portos de Aratu e de Salvador</strong>.</li>
+                               <li>Conexão com os principais eixos rodoviários federais que cortam a Bahia.</li>
+                            </ul>
+                        <br>
+                        <p>O município não é homogêneo, apresentando uma dupla identidade que se reflete em sua demografia. Seus distritos – <b>Sede, Abrantes e Monte Gordo</b> – possuem vocações econômicas e dinâmicas populacionais distintas. Abrantes, em particular, lidera a expansão e redefine a geografia do crescimento em Camaçari, impulsionado por novos empreendimentos imobiliários e sua proximidade com Salvador e Lauro de Freitas.</p>
+                        </div>
+                        <div class="md:order-1 h-96 md:h-full rounded-lg overflow-hidden shadow-lg">
+                            <iframe 
+                                class="w-full h-full" style="border:1; height:500px;" loading="lazy" allowfullscreen
+                                srcdoc="<!DOCTYPE html><html lang='pt-BR'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width, initial-scale=1.0'><title>Mapa de Camaçari</title><link rel='stylesheet' href='https://unpkg.com/leaflet@1.9.4/dist/leaflet.css' integrity='sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=' crossorigin=''/><style>html, body, #map { height: 100%; margin: 0; padding: 0; font-family: sans-serif; }</style></head><body><div id='map'></div><script src='https://unpkg.com/leaflet@1.9.4/dist/leaflet.js' integrity='sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=' crossorigin=''></script><script>const map = L.map('map').setView([-12.6978, -38.3242], 10); L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '&copy; <a href=&quot;http://www.openstreetmap.org/copyright&quot;>OpenStreetMap</a>' }).addTo(map); L.marker([-12.6978, -38.3242]).addTo(map).bindPopup('<b>Camaçari, Bahia</b><br>Um Gigante Metropolitano.').openPopup();</script></body></html>">
+                            </iframe>
+	      </div>
                     </div>
                 </div>
-            </div>
-        </section>
+            </section>
 
-        <!-- Seção de Estrutura Econômica -->
-        <section id="economia">
-            <h2 class="text-3xl section-title mb-6">3. Estrutura Econômica e Mercado de Trabalho</h2>
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
-                 <div class="card">
-                     <div class="card-content">
-                        <h3 class="text-2xl subsection-title mb-4">Potência Salarial da Região</h3>
-                        <p class="text-justify mb-4">Camaçari não apenas lidera, mas se destaca significativamente na remuneração. Com uma massa salarial anual de <strong>R$ 3,76 bilhões</strong>, o município injeta um volume maciço de recursos na economia, impulsionando um mercado consumidor robusto e resiliente.</p>
-                        <div class="chart-container" style="height: 280px;">
-                            <canvas id="salarioRmsChart"></canvas>
-                        </div>
+            <!-- Economia e Mercado -->
+            <section id="economia" class="tab-pane hidden">
+                <h2 class="section-title violet-title">Estrutura Econômica e Mercado de Trabalho</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Potência Salarial da Região</h3>
+                        <p class="text-justify mb-4">Com uma massa salarial anual de <strong>R$ 3,76 bilhões</strong>, o município injeta um volume maciço de recursos na economia, impulsionando um mercado consumidor robusto e resiliente.</p>
+                        <div class="chart-container" style="height: 280px;"><canvas id="salarioRmsChart"></canvas></div>
                      </div>
-                 </div>
-                 <div class="card">
-                     <div class="card-content">
-                        <h3 class="text-2xl subsection-title mb-4">Estrutura do Emprego Formal</h3>
-                        <p class="text-justify mb-4">A economia de Camaçari é diversificada, mas com clara vocação industrial. O setor de Serviços e Comércio é o maior empregador em número de vagas, enquanto a Indústria se destaca pela alta qualificação e remuneração, sendo responsável por <strong>46,7% de toda a massa salarial</strong> do município.</p>
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Estrutura do Emprego Formal</h3>
+                        <p class="text-justify mb-4">A Indústria se destaca pela alta qualificação e remuneração, sendo responsável por <strong>46,7% de toda a massa salarial</strong> do município, embora o setor de Serviços e Comércio seja o maior empregador em número de vagas (59,8%).</p>
                          <ul class="list-none space-y-2 text-sm text-gray-700">
-                             <li><span class="font-bold text-blue-600">Setor Terciário (Serviços/Comércio):</span> 59,8% dos empregos.</li>
-                             <li><span class="font-bold text-red-600">Setor Secundário (Indústria):</span> 39,9% dos empregos.</li>
-                             <li class="mt-4"><strong class="text-gray-800">Principais empregadores:</strong></li>
+                             <li><strong class="text-gray-800">Principais empregadores (vagas):</strong></li>
                              <li class="ml-4">1. Indústria de Transformação (21.322)</li>
                              <li class="ml-4">2. Comércio (12.301)</li>
                              <li class="ml-4">3. Administração Pública (8.270)</li>
                          </ul>
+                         <br>
+	       <p>Camaçari apresenta os salários médios mais elevados da Região Metropolitana de Salvador, um reflexo de sua forte base industrial e da qualificação de parte de sua mão de obra.</p>
+	   </div>
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Evolução da Receita Municipal</h3>
+                        <p class="text-justify mb-4">As receitas totais cresceram <strong>175%</strong> na última década, passando de R$ 1 bilhão em 2013 para <strong>R$ 2,27 bilhões</strong> em 2023, demonstrando forte dinamismo e resiliência econômica.</p>
+                        <div class="chart-container" style="height: 280px;"><div id="receitas-totais-chart"></div></div>
                      </div>
-                 </div>
-                 <div class="card lg:col-span-2">
-                     <div class="card-content">
-                        <h3 class="text-2xl subsection-title mb-4 text-center">Setores de Alta Remuneração: Onde Estão os Melhores Salários</h3>
-                        <p class="text-center text-gray-600 mb-6">A força da indústria de alta tecnologia posiciona Camaçari com salários muito acima da média regional em setores estratégicos, atraindo e retendo talentos.</p>
-                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-                            <div class="p-4 bg-violet-50 rounded-lg">
-                                <p class="text-sm font-bold text-violet-800">Automotivo</p>
-                                <p class="text-2xl font-black text-violet-600">14,5</p><p class="text-xs text-gray-500">Salários Mínimos</p>
-                            </div>
-                            <div class="p-4 bg-indigo-50 rounded-lg">
-                                <p class="text-sm font-bold text-indigo-800">Químico</p>
-                                <p class="text-2xl font-black text-indigo-600">10,0</p><p class="text-xs text-gray-500">Salários Mínimos</p>
-                            </div>
-                            <div class="p-4 bg-cyan-50 rounded-lg">
-                                <p class="text-sm font-bold text-cyan-800">Água e Esgoto</p>
-                                <p class="text-2xl font-black text-cyan-600">7,5</p><p class="text-xs text-gray-500">Salários Mínimos</p>
-                            </div>
-                            <div class="p-4 bg-teal-50 rounded-lg">
-                                <p class="text-sm font-bold text-teal-800">Eletricidade e Gás</p>
-                                <p class="text-2xl font-black text-teal-600">7,0</p><p class="text-xs text-gray-500">Salários Mínimos</p>
-                            </div>
-                        </div>
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Composição da Arrecadação Própria</h3>
+                        <p class="text-justify mb-4">A receita de Impostos, Taxas e Contribuições (ITC) somou <strong>R$ 714 milhões</strong> em 2023, com forte participação do setor de serviços (ISS).</p>
+                        <div class="chart-container" style="height: 280px;"><div id="receitas-proprias-chart"></div></div>
                      </div>
-                 </div>
-            </div>
-        </section>
+                     <div class="card lg:col-span-2">
+                        <h3 class="subsection-title lilac-title">Volume de Remunerações por Setor (2022)</h3>
+                        <p class="text-justify mb-4">A Indústria de Transformação é o principal motor econômico em volume salarial, concentrando quase metade das remunerações totais do município.</p>
+                        <div class="chart-container" style="height: 350px;"><div id="remuneracao-setor-chart"></div></div>
+                     </div>
+                </div>
+            </section>
 
-
-        <!-- Seção Principal: Vetores de Crescimento -->
-        <section id="vetores-crescimento">
-            <h2 class="text-3xl section-title mb-6">4. Vetores Estratégicos de Crescimento</h2>
-            <div class="space-y-12">
-                <div class="card" id="industria-card">
-                    <div class="card-content">
-                        <h3 class="text-2xl subsection-title mb-4">4.1 Indústria e Tecnologias: Tradição e Inovação</h3>
+            <!-- Vetores de Crescimento -->
+            <section id="vetores" class="tab-pane hidden">
+                <h2 class="section-title violet-title">Vetores Estratégicos de Crescimento</h2>
+                <div class="space-y-8">
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Indústria e Tecnologias: Tradição e Inovação</h3>
                          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
                             <div class="card border-l-4 border-violet-500">
-                                <div class="card-content">
-                                    <h4 class="font-bold text-xl text-gray-700 mb-3">Polo de Camaçari: Gigante Consolidado</h4>
-                                    <p class="text-sm text-gray-600 mb-4">Com 47 anos de história, o Polo é a base da nossa força econômica, com mais de 90 empresas líderes.</p>
-                                    <ul class="list-none space-y-3 flex-grow flex flex-col justify-center">
-                                        <li class="flex items-center"><span class="text-xl text-violet-500 mr-3">✓</span> <strong>Faturamento:</strong> US$ 15 Bilhões/ano.</li>
-                                        <li class="flex items-center"><span class="text-xl text-violet-500 mr-3">✓</span> <strong>Empregos:</strong> 50.000 (Diretos e Indiretos).</li>
-                                        <li class="flex items-center"><span class="text-xl text-violet-500 mr-3">✓</span> <strong>PIB Industrial (BA):</strong> 22% do total do estado.</li>
-                                    </ul>
-                                </div>
+                                <h4 class="font-bold text-xl text-gray-700 mb-3">Polo de Camaçari: Gigante Consolidado</h4>
+                                <p class="text-sm text-gray-600 mb-4">Com 47 anos de história, o Polo é a base da nossa força econômica, com mais de 90 empresas líderes.</p>
+                                <ul class="list-none space-y-3"><li class="flex items-center"><span class="text-xl text-violet-500 mr-3">✓</span> <strong>Faturamento:</strong> US$ 15 Bilhões/ano.</li><li class="flex items-center"><span class="text-xl text-violet-500 mr-3">✓</span> <strong>Empregos:</strong> 50.000 (Diretos e Indiretos).</li><li class="flex items-center"><span class="text-xl text-violet-500 mr-3">✓</span> <strong>PIB Industrial (BA):</strong> 22% do total do estado.</li></ul>
                             </div>
                              <div class="card border-l-4 border-green-500">
-                                 <div class="card-content">
-                                    <h4 class="font-bold text-xl text-gray-700 mb-3">O Novo Ciclo: BYD e a Eletromobilidade</h4>
-                                    <p class="text-sm text-gray-600 mb-4">A chegada da BYD transforma Camaçari no maior polo da empresa fora da China.</p>
-                                    <ul class="list-none space-y-3 flex-grow flex flex-col justify-center">
-                                        <li class="flex items-center"><span class="text-xl text-green-500 mr-3">✓</span> <strong>Investimento:</strong> R$ 5,5 bilhões.</li>
-                                        <li class="flex items-center"><span class="text-xl text-green-500 mr-3">✓</span> <strong>Empregos:</strong> Até 20.000 (diretos e indiretos).</li>
-                                        <li class="flex items-center"><span class="text-xl text-green-500 mr-3">✓</span> <strong>Cadeia de Fornecedores:</strong> Atração de mais de 40 empresas.</li>
-                                    </ul>
-                                 </div>
+                                <h4 class="font-bold text-xl text-gray-700 mb-3">O Novo Ciclo: BYD e a Eletromobilidade</h4>
+                                <p class="text-sm text-gray-600 mb-4">A chegada da BYD transforma Camaçari no maior polo da empresa fora da China.</p>
+                                <ul class="list-none space-y-3"><li class="flex items-center"><span class="text-xl text-green-500 mr-3">✓</span> <strong>Investimento:</strong> R$ 5,5 bilhões.</li><li class="flex items-center"><span class="text-xl text-green-500 mr-3">✓</span> <strong>Empregos:</strong> Até 20.000 (diretos e indiretos).</li><li class="flex items-center"><span class="text-xl text-green-500 mr-3">✓</span> <strong>Cadeia de Fornecedores:</strong> Atração de mais de 40 empresas.</li></ul>
                             </div>
                         </div>
                     </div>
-                </div>
-
-                 <div class="card" id="capital-humano">
-                     <h3 class="text-2xl subsection-title mb-4">4.2 Capital Humano e Qualificação</h3>
-                     <div class="card-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                         <div>
-                             <p class="text-justify mb-4">Camaçari investe na formação de sua força de trabalho para atender às novas demandas da indústria 4.0, garantindo que as oportunidades geradas fiquem no município.</p>
-                             <ul class="list-disc list-inside space-y-2 text-gray-700">
-                                 <li><strong>Mão de Obra Local:</strong> Compromisso da BYD de contratar entre <strong>90% a 95%</strong> de trabalhadores da região.</li>
-                                 <li><strong>Investimento em Qualificação (FIEB):</strong> <strong>R$ 80 milhões</strong> para ampliar as unidades SESI e SENAI.</li>
-                                 <li><strong>Ampliação do SESI:</strong> Aumento da capacidade de 800 para <strong>2.000 alunos</strong>.</li>
-                             </ul>
-                         </div>
-                         <div class="text-center">
-                             <img src="https://placehold.co/500x350/e9d5ff/8b5cf6?text=Qualifica%C3%A7%C3%A3o+e+Emprego" alt="Imagem de trabalhadores em uma fábrica" class="rounded-lg shadow-md mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/500x350/e9d5ff/8b5cf6?text=Imagem+Indispon%C3%ADvel';">
-                             <p class="text-xs text-gray-500 mt-2">Parceria estratégica para qualificar a população local.</p>
-                         </div>
-                     </div>
-                </div>
-
-                <div class="card" id="mercado-imobiliario-full">
-                     <h3 class="text-2xl subsection-title mb-4">4.3 Mercado Imobiliário e Expansão Urbana</h3>
-                     <div class="card-content grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-                        <div>
-                             <p class="text-justify mb-4">Camaçari vive um momento único no setor, com forte demanda por projetos residenciais, comerciais e hoteleiros, impulsionada pelo crescimento econômico e populacional.</p>
-                             <ul class="list-disc list-inside space-y-2 text-gray-700">
-                                 <li><strong>Top 100 do Brasil</strong> para se investir no setor imobiliário.</li>
-                                 <li><strong>Alto Padrão:</strong> Lançamentos como <strong>Alphaville</strong>, <strong>Vívea</strong> e o residencial de luxo <strong>Evidências</strong>.</li>
-                                 <li><strong>Setor Hoteleiro:</strong> Chegada do <strong>Hotel Ibis</strong> com 126 unidades no modelo condo-hotel.</li>
-                                 <li><strong>Déficit Habitacional:</strong> Demanda reprimida de mais de <strong>16.600 moradias</strong>.</li>
-                             </ul>
-                        </div>
-                        <div class="chart-container" style="height: 300px;">
-                            <canvas id="projecaoPopChart"></canvas>
-                        </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Comércio e Serviços em Expansão</h3>
+                        <p>O setor terciário acompanha o dinamismo industrial e do turismo, com um ecossistema de apoio robusto e um mercado consumidor em crescimento, fomentado por programas como o <programa "<b>Acelera Camaçari – Hub de Negócios</b>". Em parceria com o Sebrae Bahia, oferece consultorias gratuitas e personalizadas em gestão, finanças, marketing, inovação e sustentabilidade, além de impulsionar a formalização de micro e pequenos negócios. Essa iniciativa fomenta o desenvolvimento econômico de toda a cidade, da sede à orla, gerando emprego e renda.</p>
+	      <br>
+                        <p>Com a segunda maior população da RMS e um crescimento contínuo, Camaçari oferece um mercado consumidor robusto e em constante ampliação, gerando demanda significativa por serviços essenciais como <b>hospedagem, alimentação, saúde e educação</b>. A chegada de grandes empresas, como a BYD, fortalecerá ainda mais o poder de compra e o dinamismo do mercado local.</p>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="sustentabilidade">
-            <h2 class="text-3xl section-title mb-6">5. Sustentabilidade e Qualidade de Vida</h2>
-            <p class="text-center text-gray-600 mb-8 max-w-3xl mx-auto">Camaçari alia desenvolvimento econômico com preservação ambiental, criando um ambiente de negócios moderno e uma cidade com alta qualidade de vida, reconhecida internacionalmente.</p>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                <div class="card border-l-4 border-teal-500">
-                    <div class="card-content">
-                        <h3 class="text-2xl subsection-title mb-4">IPTU Verde: Incentivo à Sustentabilidade</h3>
-                        <p class="text-justify mb-4">O município é pioneiro na concessão de incentivos para construções sustentáveis, oferecendo descontos de até 20% no imposto para imóveis que adotam medidas de eficiência ambiental.</p>
-                        <div class="chart-container" style="height: 250px;">
-                            <canvas id="iptuVerdeChart"></canvas>
+                    <div class="card text-center border-l-4 border-blue-500">
+                        <h3 class="subsection-title lilac-title">Resiliência Fiscal Pós-Pandemia</h3>
+                        <p class="text-gray-600 mb-4">O município demonstrou forte resiliência fiscal, com a arrecadação crescendo mais que as despesas entre 2019 e 2023.</p>
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                           <div class="p-2 bg-green-100 rounded-lg"><p class="font-bold text-green-800 text-2xl">+61%</p><p class="text-sm text-green-700">Receita Total</p></div>
+                           <div class="p-2 bg-green-100 rounded-lg"><p class="font-bold text-green-800 text-2xl">+92%</p><p class="text-sm text-green-700">Receita Própria</p></div>
+                           <div class="p-2 bg-red-100 rounded-lg"><p class="font-bold text-red-800 text-2xl">+58%</p><p class="text-sm text-red-700">Despesa Total</p></div>
+                           <div class="p-2 bg-blue-100 rounded-lg"><p class="font-bold text-blue-800 text-2xl">+106%</p><p class="text-sm text-blue-700">Superávit</p></div>
                         </div>
-                         <p class="text-xs text-center text-gray-500 mt-2">Medidas incluem reuso de água, energia solar, telhado verde, entre outros.</p>
-                    </div>
-                </div>
-                <div class="card border-l-4 border-blue-500">
-                    <div class="card-content text-center flex flex-col justify-center items-center">
-                         <img src="https://www.bandeiraazul.org.br/wp-content/uploads/2023/07/logo-ba-pt.png" alt="Selo Bandeira Azul" class="h-24 mb-4 mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/150x100/dbeafe/1e40af?text=Bandeira+Azul';">
-                        <h3 class="text-2xl subsection-title mb-2">Qualidade Internacionalmente Reconhecida</h3>
-                        <p class="text-lg font-bold text-blue-800">Bandeira Azul por 6 Anos Consecutivos</p>
-                        <p class="text-justify my-4">A Praia do Paraíso, em Guarajuba, ostenta o prestigioso selo internacional Bandeira Azul, renovado para a temporada 2024/2025. A certificação atesta o cumprimento de rigorosos critérios de qualidade da água, gestão ambiental, segurança e educação, fortalecendo Camaçari como um destino turístico sustentável de excelência.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="ambiente-institucional">
-            <h2 class="text-3xl section-title mb-6">6. Ambiente Institucional Favorável ao Investidor</h2>
-             <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                 <div class="card">
-                     <div class="card-content">
-                        <h3 class="text-2xl subsection-title mb-4">Programa Invista em Camaçari</h3>
-                        <p class="text-justify mb-4">A Lei Municipal nº 1.672/2021 estabelece um robusto programa de incentivos fiscais e econômicos para atrair, manter e ampliar investimentos, garantindo segurança jurídica e competitividade.</p>
-                     </div>
-                      <div class="chart-container" style="height: 280px;">
-                           <canvas id="incentivosChart"></canvas>
-                      </div>
-                     <p class="text-xs text-center text-gray-500 mt-2">Os benefícios são escalonados por valor de investimento e geração de empregos.</p>
-                 </div>
-                 <div class="card">
-                    <div class="card-content">
-                        <h3 class="text-2xl subsection-title mb-4">Infraestrutura e Desenvolvimento</h3>
-                        <p class="text-justify mb-4">O município está em pleno ciclo de modernização com o <strong>Programa de Integração e Desenvolvimento</strong>, uma parceria com o Banco de Desenvolvimento da América Latina e Caribe (CAF).</p>
-                        <div class="text-center my-8">
-                            <p class="text-5xl font-black text-violet-600">US$ 100 Milhões</p>
-                            <p class="font-bold text-gray-600">em investimentos</p>
-                        </div>
-                        <ul class="list-disc list-inside space-y-2 text-gray-700">
-                            <li>Requalificação urbana da Orla (Itacimirim, Jacuípe), Centro Histórico e bairros.</li>
-                            <li>Implantação de um moderno <strong>Sistema de Monitoramento Ambiental</strong> para agilizar o licenciamento.</li>
+                   </div>
+                   <div class="card">
+                        <h3 class="subsection-title lilac-title">Potencial de Diversificação Econômica</h3>
+                        <p class="text-gray-700 mb-2">A base industrial tecnológica favorece o desenvolvimento de um ecossistema de inovação e da economia do conhecimento, em setores estratégicos ainda sub-representados:</p>
+                        <ul class="list-disc list-inside text-gray-700">
+                            <li><strong>Pesquisa e Desenvolvimento Científico (P&D):</strong> Alto potencial de integração com a indústria química e de novos materiais.</li>
+                            <li><strong>Tecnologia da Informação (TI):</strong> Oportunidades em automação industrial, sistemas de controle e Indústria 4.0.</li>
+                            <li><strong>Logística e Armazenamento:</strong> Posição geográfica privilegiada para atrair investimentos em centros de distribuição e comércio exterior.</li>
                         </ul>
                     </div>
-                 </div>
-             </div>
-        </section>
+                </div>
+            </section>
 
-        <!-- Seção de Síntese -->
-        <section id="sintese">
-            <h2 class="text-3xl section-title mb-4">7. Síntese: Por que Investir em Camaçari?</h2>
+            <!-- Turismo e Cultura -->
+            <section id="turismo" class="tab-pane hidden">
+                <h2 class="section-title violet-title">Turismo e Cultura: Destino de Excelência</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card bg-blue-50">
+                        <h3 class="subsection-title text-blue-800">Selo Internacional Bandeira Azul</h3>
+                        <p>As praias de <span class="highlight-text">Paraíso (Guarajuba)</span> e <span class="highlight-text">Espera (Itacimirim)</span> possuem o prestigiado selo de qualidade, atestando a excelência em gestão ambiental, qualidade da água e segurança.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Rotas Culturais e Tecnologia</h3>
+                        <p>A <span class="highlight-text">Rota Afro do Acarajé de Arembepe</span> valoriza o patrimônio imaterial e o afroempreendedorismo, contando com um aplicativo próprio para guiar os visitantes, unindo tradição e inovação.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Liderança e Planejamento</h3>
+                        <p>Camaçari sedia a Câmara Técnica de Turismo da Costa dos Coqueiros, liderando o planejamento regional e utilizando pesquisas de opinião para aprimorar a experiência turística.</p>
+                    </div>
+                     <div class="card">
+                        <div class="card-content">
+                           <h3 class="subsection-title lilac-title">Crescimento na Orla</h3>
+                           <p>O distrito de Abrantes cresceu <span class="highlight-text">+68,2%</span> (2010-2022), impulsionado pelo turismo e mercado imobiliário. O distrito Monte Gordo também cresceu acima da Sede municipal.</p>
+                       </div>
+                       <div class="chart-container mt-4"><canvas id="popDistritoChart"></canvas></div>
+                   </div>
+                     <div class="card lg:col-span-2">
+                        <h3 class="subsection-title lilac-title">Patrimônio e Eventos</h3>
+                        <p>Camaçari é uma das cidades mais antigas do Brasil, com sua história iniciada em <b>1558</b> com a fundação do Aldeamento do Divino Espírito Santo pelos padres jesuítas na Vila de Abrantes. Este local foi um dos primeiros núcleos urbanos do Brasil e sediou a resistência portuguesa contra a invasão holandesa.</p>
+	      <br>
+	      <p>Camaçari orgulha-se de seus <b>42 quilômetros de praias paradisíacas</b>, incluindo destinos renomados como <b>Arembepe, Guarajuba, Itacimirim, Jauá e Barra do Jacuípe</b>, ideais para banho, esportes náuticos como caiaque, windsurf e jet ski, ou para simplesmente apreciar a paisagem.</p>
+	      <br>
+	      <p>Camaçari é um caldeirão cultural, com uma forte vocação que se manifesta em seu patrimônio histórico, na diversidade étnica e religiosa de sua população e em ricas manifestações culturais populares, tradicionais e contemporâneas, como o samba de roda, chegança e as típicas lavagens.</p>
+	      <br>
+	      <p>A emblemática <b>Aldeia Hippie de Arembepe</b>, reconhecida internacionalmente, e o <b>Quilombo da Cordoaria</b>, com sua Casa de Farinha, são exemplos vivos de nossa rica tapeçaria sociocultural, integrados o desenvolvimento urbano crescente.</p>
+                    
+
+
+	</div>
+                </div>
+            </section>
+            
+            <!-- Mercado Imobiliário -->
+            <section id="imobiliario" class="tab-pane hidden">
+                <h2 class="section-title violet-title">Mercado Imobiliário</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card lg:col-span-3">
+                        <h3 class="subsection-title lilac-title">Demanda Aquecida e Projeções de Crescimento</h3>
+                        <p>Camaçari vive um momento único no setor, com forte demanda por projetos residenciais, comerciais e hoteleiros, impulsionada pelo crescimento econômico e populacional. Os cenários projetam uma população entre <span class="highlight-text">386 mil e 413 mil habitantes até 2040</span>.</p>
+                        <div class="chart-container mt-4"><canvas id="projecaoPopChart"></canvas></div>
+                    </div>
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Alto Padrão e Vetor na Orla</h3>
+                        <p>Empreendimentos residenciais como <strong>Alphaville Litoral Norte e Alphaville Guarajuba</strong>, <strong>Busca Vida</strong>, <strong>Maanaim</strong> e <b>Canto dos Pássaros</b> consolidam a região da orla como um polo de alto padrão. 
+	      <br>
+                        <p>Entre 2010 e 2022 o distrito de <b>Abrantes</b> cresceu em população <strong>+68,2%</strong> e o distrito <b>Monte Gordo</b> cresceu <strong>+19,0%</strong>.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Setor Hoteleiro e Demanda na Sede</h3>
+                        <p>A chegada de modelos de empreendimentos como o <strong>Hotel Ibis</strong> e o Cambuci Express atende à demanda de negócios, ambos localizados no bairro <b>Reserva Camassary</b> que já conta com o Boulevard Shopping.</p>
+	      <br>
+                        <p>A "densidade urbana da cidade de Camaçari (<span class="highlight-text">2.681,6 hab/km²</span>) pressiona por novos projetos urbanísticos e verticalização e gera mais oportunidades de negócios.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Oportunidades em Habitação Social</h3>
+                        <p>O município possui um déficit habitacional de mais de <span class="highlight-text">16.600 moradias em 2022</span>. Programas habitacionais criam oportunidades para o setor da construção civil e imobiliário.  A construção de moradias dignas e bem localizadas é essencial para fixar a crescente força de trabalho atraída pelos novos empreendimentos.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Capital Humano e Social -->
+            <section id="social" class="tab-pane hidden">
+                <h2 class="section-title violet-title">Capital Humano e Social</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Perfil Demográfico Jovem</h3>
+                        <p>Camaçari possui o menor <b>índice de envelhecimento (32,04)</b> e uma <b>idade mediana de 34 anos</b> na RMS em 2022. Este perfil demográfico indica um significativo potencial em termos de força de trabalho e dinamismo econômico para o município. O crescimento populacional é impulsionado por fluxos migratórios, atraídos pela oferta de empregos industriais e pelo turismo.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Educação</h3>
+                        <p>A taxa de escolarização de 6 a 14 anos é de <span class="highlight-text">96,8%</span> e registra uma taxa de alfabetização de 94,60%, posicionando-o em um patamar educacional adequado e indicando uma base sólida para a qualificação da população.</p>
+	  <br>
+                    <p>Camaçri conta com Instituições tanto de <b>Ensino Técnico e Tecnologico</b> quanto de <b>Ensino Superior</b> como a UFBA, por meio do Instituto de Ciência, Tecnologia e Inovação (ICTI), a UNEB (Universidade do Estado da Bahia), o IFBA (Instituto Federal da Bahia), a FAMEC (Faculdade Metropolitana de Camaçari), o SESI (Escola SESI Milton Santos), o SENAI, além do CIMATEC Park.
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">IDH e Saúde</h3>
+                        <p>O IDHM é de <span class="highlight-text">0,694 (Médio)</span>. A taxa de mortalidade infantil é de 12,82 por mil nascidos vivos, e o município possui 85 estabelecimentos de saúde SUS.</p>
+                    </div>
+                    <div class="card lg:col-span-2">
+                        <h3 class="subsection-title lilac-title">Mão de Obra e Qualificação</h3>
+                        <p>Compromisso da BYD de contratar entre <strong>90% a 95%</strong> de trabalhadores locais, com investimento de <strong>R$ 80 milhões</strong> da FIEB para ampliar as unidades SESI e SENAI, aumentando a capacidade para <b>2.000 alunos</b>. Umas das ideias é desenvolver cursos específicos para as demandas da Indústria 4.0 e eletromobilidade, absorvendo talentos locais e ex-funcionários de grandes empresas, como a Ford.</p>
+	      <br>
+	      <p>Programas como "Ser Mais Aprendiz" e "Qualifica Camaçari", em parceria com o Senai, visam promover o desenvolvimento e a capacitação profissional, ampliando a oferta de vagas e inserindo jovens no mercado de trabalho. Há um esforço contínuo para qualificar a mão de obra, alinhando programas educacionais às necessidades das divisões CNAE predominantes e emergentes, com foco nos setores com maiores déficits de pessoal qualificado.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-content">
+                           <h3 class="subsection-title lilac-title">Composição Étnico-Racial</h3>
+                           <p>Camaçari é uma cidade majoritariamente negra, com <span class="highlight-text">84%</span> da população autodeclarada preta ou parda.</p>
+                        </div>
+                        <div class="chart-container mt-4"><canvas id="etniaChart"></canvas></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Governança e Incentivos -->
+            <section id="governança" class="tab-pane hidden">
+                <h2 class="section-title violet-title">Governança e Incentivos ao Investidor</h2>
+                 <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Programa Invista em Camaçari</h3>
+                        <p class="text-justify mb-4">A Lei Municipal nº 1.672/2021 estabelece um robusto programa de incentivos fiscais e econômicos para atrair, manter e ampliar investimentos, garantindo segurança jurídica e competitividade.</p>
+                        <div class="chart-container" style="height: 280px;"><canvas id="incentivosChart"></canvas></div>
+                     </div>
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Saúde Fiscal e Autonomia</h3>
+                        <p class="text-justify mb-4">Com <strong>33,5%</strong> de suas receitas correntes vindas de tributos próprios, Camaçari possui uma autonomia fiscal muito superior à média nacional (15-20%), garantindo maior previsibilidade e menor dependência de transferências.</p>
+                         <div class="text-center my-8"><p class="text-5xl font-black text-green-600">R$ 240 mi</p><p class="font-bold text-gray-600">de Poupança Corrente (2023)</p></div>
+                     </div>
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Liderança em Receita Per Capita</h3>
+                        <p class="text-justify mb-4">Com <strong>R$ 7.555 por habitante</strong>, Camaçari possui a maior capacidade de arrecadação entre as grandes cidades da Bahia, <strong>78% superior</strong> à de Salvador, o que se traduz em maior capacidade de investimento e prestação de serviços.</p>
+                        <div class="chart-container" style="height: 350px;"><div id="comparativo-receita-percapita-chart"></div></div>
+                     </div>
+                     <div class="card">
+                        <h3 class="subsection-title lilac-title">Liderança em Investimento na Bahia</h3>
+                        <p class="text-justify mb-4">Camaçari se destaca no cenário estadual pela sua alta capacidade de investimento, superando outras grandes cidades em indicadores-chave por habitante.</p>
+                        <div class="chart-container" style="height: 350px;"><div id="comparativo-invest-percapita-chart"></div></div>
+                     </div>
+                </div>
+            </section>
+            
+            <!-- Sustentabilidade -->
+            <section id="sustentabilidade" class="tab-pane hidden">
+                <h2 class="section-title violet-title">Sustentabilidade e Economia Verde</h2>
+                <div class="grid md:grid-cols-2 gap-8 items-stretch">
+                    <div class="card border-l-4 border-teal-500">
+                        <h3 class="subsection-title lilac-title">IPTU Verde: Incentivo à Sustentabilidade</h3>
+                        <p class="text-justify mb-4">O município é pioneiro na concessão de incentivos para construções sustentáveis, oferecendo descontos de até 20% no imposto para imóveis que adotam medidas de eficiência ambiental.</p>
+                        <div class="chart-container" style="height: 250px;"><canvas id="iptuVerdeChart"></canvas></div>
+                    </div>
+                    <div class="card border-l-4 border-blue-500">
+                        <div class="text-center">
+                             <img src="https://www.bandeiraazul.org.br/wp-content/uploads/2023/07/logo-ba-pt.png" alt="Selo Bandeira Azul" class="h-24 mb-4 mx-auto" onerror="this.onerror=null;this.src='https://placehold.co/150x100/dbeafe/1e40af?text=Bandeira+Azul';">
+                            <h3 class="subsection-title lilac-title mb-2">Qualidade Internacionalmente Reconhecida</h3>
+                            <p class="text-lg font-bold text-blue-800">Bandeira Azul por 6 Anos Consecutivos</p>
+                            <p class="text-justify my-4">A Praia do Paraíso, em Guarajuba, ostenta o prestigioso selo internacional, atestando o cumprimento de rigorosos critérios de qualidade da água, gestão ambiental, segurança e educação.</p>
+	          <br>
+                            <br>
+                            <p>O <b>Horto Florestal Municipal</b> é um espaço requalificado com foco em educação ambiental, cultura e lazer. A <b>Cidade do Saber (CDS)</b> e centros culturais como os de Barra do Pojuca e Vila de Abrantes oferecem oficinas e atividades que promovem a cultura local e a inclusão social.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Economia Verde e Transição Energética</h3>
+                        <p>Incentivo às atividades econômicas ambientalmente sustentáveis, como energias renováveis, reciclagem e ecoturismo, capitalizando a rica biodiversidade local e a crescente demanda por produtos e serviços sustentáveis. Projetos para produção de mel, ovos de codorna e o desenvolvimento de <span class="highlight-text">Hidrogênio Verde (H2V)</span> no Polo Industrial, com o SENAI CIMATEC Park, são eixos estratégicos para o futuro da economia de baixo carbono.</p>
+                    </div>
+                    <div class="card">
+                        <h3 class="subsection-title lilac-title">Apoio à Agricultura Familiar</h3>
+                        <p>A Secretaria de Agricultura e Pesca (Sedap) promove ações de fortalecimento do setor, com assistência técnica, entrega de equipamentos e fomento a programas para fortalecer a <b>Agricultura Familiar</b>, como retomada da emissão do Cadastro Nacional da Agricultura Familiar (CAF) e para garantir a compra de produtos da agricultura familiar para a merenda escolar.</p>
+<br>
+<p>Além do forte perfil industrial e turismo crescente, o <b>Censo Agropecuário 2017 (IBGE)</b> mapeou 1.174 estabelecimentos agropecuários. A área total abrangida por esses estabelecimentos foi de 17.724 hectares (ha).</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Síntese e Destaques -->
+        <section id="sintese" class="mt-12">
+            <h2 class="section-title violet-title">Síntese: Por que Investir em Camaçari?</h2>
             <div class="card bg-gray-800 text-white">
-                <div class="card-content grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                     <div>
                         <h3 class="text-2xl font-bold text-violet-300 mb-3">Vantagens Competitivas</h3>
                         <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Localização Estratégica:</strong> Integrada à RMS, com excelente infraestrutura logística.</span>
-                            </li>
-                            <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Ecossistema Industrial Robusto:</strong> Tradição industrial e um novo ciclo de investimentos em alta tecnologia.</span>
-                            </li>
-                             <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Mercado Consumidor Forte:</strong> Maior salário médio da RMS e bônus demográfico.</span>
-                            </li>
+                            <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Localização Estratégica:</strong> Integrada à RMS, com excelente infraestrutura logística.</span></li>
+                            <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Ecossistema Industrial Robusto:</strong> Tradição industrial e um novo ciclo de investimentos em alta tecnologia.</span></li>
+                             <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Mercado Consumidor Forte:</strong> Maior salário médio da RMS e bônus demográfico.</span></li>
                         </ul>
                     </div>
                      <div>
                         <h3 class="text-2xl font-bold text-violet-300 mb-3">Oportunidades de Destaque</h3>
                         <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Cadeia da Eletromobilidade:</strong> Demanda por fornecedores, serviços e tecnologia.</span>
-                            </li>
-                             <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Mercado Imobiliário:</strong> Forte e diversificada demanda por moradias e empreendimentos.</span>
-                            </li>
-                             <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Turismo Sustentável:</strong> Potencial na Orla com selo de qualidade internacional.</span>
-                            </li>
+                            <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Cadeia da Eletromobilidade:</strong> Demanda por fornecedores, serviços e tecnologia.</span></li>
+                             <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Mercado Imobiliário:</strong> Forte e diversificada demanda por moradias e empreendimentos.</span></li>
+                             <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Turismo Sustentável:</strong> Potencial na Orla com selo de qualidade internacional.</span></li>
                         </ul>
                     </div>
                      <div class="md:col-span-2 lg:col-span-1">
                         <h3 class="text-2xl font-bold text-violet-300 mb-3">Ambiente Pro-Negócios</h3>
                         <ul class="space-y-3">
-                            <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Incentivos Fiscais:</strong> Legislação clara (Invista em Camaçari e IPTU Verde).</span>
-                            </li>
-                             <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Investimento Público:</strong> Forte aporte em infraestrutura e qualificação urbana e ambiental.</span>
-                            </li>
-                             <li class="flex items-start">
-                                <span class="text-green-400 mr-3">✔</span>
-                                <span><strong>Capital Humano:</strong> Parcerias consolidadas para formar a mão de obra local.</span>
-                            </li>
+                            <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Incentivos Fiscais:</strong> Legislação clara (Invista em Camaçari e IPTU Verde).</span></li>
+                             <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Governança Sólida:</strong> Alta autonomia fiscal e capacidade de investimento comprovada.</span></li>
+                             <li class="flex items-start"><span class="text-green-400 mr-3">✔</span><span><strong>Capital Humano:</strong> Parcerias consolidadas para formar a mão de obra local.</span></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </section>
 
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white mt-16 py-8 px-4">
-        <div class="container mx-auto text-center">
-            <h3 class="text-xl font-bold">REALIZAÇÃO:</h3>
-            <p class="mt-2">Fábio Moura Costa – Urbanista e Msc. em Geografia</p>
+        <!-- Créditos -->
+        <div class="credits">
+            <h3>REALIZAÇÃO:</h3>
             <p>Coordenadoria de Planejamento e Projetos (CPP)</p>
             <p>Diretoria de Urbanismo (DIRURB)</p>
             <p>Secretaria de Desenvolvimento Urbano e Meio Ambiente (SEDUR) / PMC</p>
-            <p class="mt-4 text-xs text-gray-400">&copy; Junho de 2025 - Prefeitura Municipal de Camaçari</p>
+	    <p>Agosto de 2025</p>
         </div>
-    </footer>
+
+    </main>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabLinks = document.querySelectorAll('.tab-link');
+            const tabPanes = document.querySelectorAll('.tab-pane');
 
-        // Chart for Salários na RMS
-        const salarioRmsCtx = document.getElementById('salarioRmsChart')?.getContext('2d');
-        if (salarioRmsCtx) {
-            new Chart(salarioRmsCtx, {
-                type: 'bar',
-                data: {
-                    labels: ['Camaçari', 'Salvador', 'Candeias', 'Simões Filho', 'Dias d\'Ávila', 'Lauro de F.'],
-                    datasets: [{
-                        label: 'Salário Médio (em Salários Mínimos)',
-                        data: [3.3, 3.1, 3.0, 2.2, 2.1, 1.8],
-                        backgroundColor: 'rgba(54, 162, 235, 0.7)',
-                        borderColor: 'rgba(54, 162, 235, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: { display: true, text: 'Comparativo Salarial na RMS (2022)', font: { size: 14 }, color: '#4A5568' },
-                        legend: { display: false }
-                    },
-                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Salários Mínimos' } } }
-                }
+            tabLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    tabLinks.forEach(l => l.classList.remove('border-indigo-500', 'text-indigo-600', 'font-bold'));
+                    link.classList.add('border-indigo-500', 'text-indigo-600', 'font-bold');
+                    const targetId = link.getAttribute('href').substring(1);
+                    tabPanes.forEach(pane => {
+                        pane.id === targetId ? pane.classList.remove('hidden') : pane.classList.add('hidden');
+                    });
+                });
             });
-        }
-        
-        // Chart for Projeção Populacional
-        const projecaoPopCtx = document.getElementById('projecaoPopChart')?.getContext('2d');
-        if(projecaoPopCtx) {
-            new Chart(projecaoPopCtx, {
+            
+            if (tabLinks.length > 0) tabLinks[0].click();
+
+            const defaultFontColor = '#333';
+            Chart.defaults.color = defaultFontColor;
+            Chart.defaults.font.family = "'Inter', sans-serif";
+
+            // Helper function to create charts safely
+            const createChart = (canvasId, config) => {
+                const canvas = document.getElementById(canvasId);
+                if (canvas) {
+                    new Chart(canvas, config);
+                }
+            };
+            
+            const createApexChart = (elementId, options) => {
+                const element = document.getElementById(elementId);
+                if (element) {
+                    const chart = new ApexCharts(element, options);
+                    chart.render();
+                }
+            };
+
+            const formatCurrency = (value) => {
+                if (value === undefined || value === null) return '';
+                if (value >= 1e9) return 'R$ ' + (value / 1e9).toFixed(2) + ' bi';
+                if (value >= 1e6) return 'R$ ' + (value / 1e6).toFixed(1) + ' mi';
+                return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(value);
+            };
+
+            // --- GRÁFICOS ---
+            createChart('salarioRmsChart', {
+                type: 'bar',
+                data: { labels: ['Camaçari', 'Salvador', 'Candeias', 'Simões Filho', 'Dias d\'Ávila', 'Lauro de F.'], datasets: [{ label: 'Salário Médio (em Salários Mínimos)', data: [3.3, 3.1, 3.0, 2.2, 2.1, 1.8], backgroundColor: 'rgba(54, 162, 235, 0.7)', borderColor: 'rgba(54, 162, 235, 1)', borderWidth: 1 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Comparativo Salarial na RMS (2022)', font: { size: 14 } }, legend: { display: false } }, scales: { y: { beginAtZero: true, title: { display: true, text: 'Salários Mínimos' } } } }
+            });
+
+            createChart('projecaoPopChart', {
                 type: 'line',
-                data: {
-                    labels: ['2022 (Censo)', '2030', '2033', '2040'],
-                    datasets: [
-                        {
-                            label: 'Cenário Conservador (Linear)',
-                            data: [300372, 338640, 352991, 386476],
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-                            fill: true,
-                            tension: 0.1
-                        },
-                        {
-                            label: 'Cenário Otimista (Geométrico)',
-                            data: [300372, 346248, 365120, 412998],
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-                            fill: true,
-                            tension: 0.1
-                        }
-                    ]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: { display: true, text: 'Demanda Futura: Projeção Populacional', font: { size: 16 }, color: '#333' },
-                        legend: { position: 'top' },
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    let label = context.dataset.label || '';
-                                    if (label) { label += ': '; }
-                                    if (context.parsed.y !== null) { label += new Intl.NumberFormat('pt-BR').format(context.parsed.y); }
-                                    return label;
-                                }
-                            }
-                        }
-                    },
-                     scales: { y: { ticks: { callback: function(value) { return (value / 1000) + 'k'; } } } }
-                }
+                data: { labels: ['2022', '2030', '2033', '2040'], datasets: [{ label: 'Conservador', data: [300372, 338640, 352991, 386476], borderColor: 'rgba(54, 162, 235, 1)', backgroundColor: 'rgba(54, 162, 235, 0.2)', fill: true, tension: 0.1 }, { label: 'Otimista', data: [300372, 346248, 365120, 412998], borderColor: 'rgba(255, 99, 132, 1)', backgroundColor: 'rgba(255, 99, 132, 0.2)', fill: true, tension: 0.1 }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { title: { display: true, text: 'Demanda Futura: Projeção Populacional', font: { size: 16 } }, legend: { position: 'top' }, tooltip: { callbacks: { label: (context) => `${context.dataset.label || ''}: ${new Intl.NumberFormat('pt-BR').format(context.parsed.y)}` } } }, scales: { y: { ticks: { callback: (value) => (value / 1000) + 'k' } } } }
             });
-        }
-        
-         // Chart for Incentivos Fiscais
-        const incentivosCtx = document.getElementById('incentivosChart')?.getContext('2d');
-        if(incentivosCtx){
-            new Chart(incentivosCtx, {
+
+            createChart('incentivosChart', {
                 type: 'bar',
-                data: {
-                    labels: ['> R$ 3 mi', '> R$ 5 mi', '> R$ 7 mi', '> R$ 10 mi'],
-                    datasets: [{
-                        label: 'Redução IPTU/TRSD (%)',
-                        data: [30, 50, 70, 100],
-                         backgroundColor: 'rgba(138, 43, 226, 0.7)',
-                         borderColor: 'rgba(138, 43, 226, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        y: { beginAtZero: true, max: 100, title: { display: true, text: 'Redução de Impostos (%)' } },
-                         x: { title: { display: true, text: 'Valor do Investimento' } }
-                    },
-                    plugins: {
-                        title: { display: true, text: 'Incentivos Fiscais por Investimento', font: { size: 14 }, color: '#4A5568' },
-                        legend: { display: false }
-                    }
-                }
+                data: { labels: ['> R$ 3 mi', '> R$ 5 mi', '> R$ 7 mi', '> R$ 10 mi'], datasets: [{ label: 'Redução IPTU/TRSD (%)', data: [30, 50, 70, 100], backgroundColor: 'rgba(138, 43, 226, 0.7)', borderColor: 'rgba(138, 43, 226, 1)', borderWidth: 1 }] },
+                options: { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, max: 100, title: { display: true, text: 'Redução de Impostos (%)' } }, x: { title: { display: true, text: 'Valor do Investimento' } } }, plugins: { title: { display: true, text: 'Incentivos Fiscais por Investimento', font: { size: 14 } }, legend: { display: false } } }
             });
-        }
-        
-        // Chart for IPTU Verde
-        const iptuVerdeCtx = document.getElementById('iptuVerdeChart')?.getContext('2d');
-        if (iptuVerdeCtx) {
-            new Chart(iptuVerdeCtx, {
+
+            createChart('iptuVerdeChart', {
                 type: 'bar',
-                data: {
-                    labels: ['Reuso de Água', 'Plantio de Árvores', 'Energia Solar', 'Telhado Verde', 'Descarga Duplo Fluxo'],
-                    datasets: [{
-                        label: 'Desconto no IPTU (%)',
-                        data: [3, 3, 2, 2, 1],
-                        backgroundColor: [
-                           'rgba(54, 162, 235, 0.7)',
-                           'rgba(75, 192, 192, 0.7)',
-                           'rgba(255, 206, 86, 0.7)',
-                           'rgba(153, 102, 255, 0.7)',
-                           'rgba(255, 159, 64, 0.7)'
-                        ],
-                        borderColor: [
-                           'rgba(54, 162, 235, 1)',
-                           'rgba(75, 192, 192, 1)',
-                           'rgba(255, 206, 86, 1)',
-                           'rgba(153, 102, 255, 1)',
-                           'rgba(255, 159, 64, 1)'
-                        ],
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: {
-                        title: { display: false },
-                        legend: { display: false }
-                    },
-                    scales: { x: { beginAtZero: true, max: 4, title: { display: true, text: 'Desconto (%)' } } }
-                }
+                data: { labels: ['Reuso de Água', 'Plantio', 'Energia Solar', 'Telhado Verde', 'Descarga Dupla'], datasets: [{ label: 'Desconto no IPTU (%)', data: [3, 3, 2, 2, 1], backgroundColor: ['rgba(54, 162, 235, 0.7)', 'rgba(75, 192, 192, 0.7)', 'rgba(255, 206, 86, 0.7)', 'rgba(153, 102, 255, 0.7)', 'rgba(255, 159, 64, 0.7)'], borderWidth: 1 }] },
+                options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { title: { display: false }, legend: { display: false } }, scales: { x: { beginAtZero: true, max: 4, title: { display: true, text: 'Desconto (%)' } } } }
             });
-        }
-    });
+
+            createChart('etniaChart', {
+                type: 'pie', data: { labels: ['Pardos (56%)', 'Pretos (28%)', 'Brancos (15.6%)', 'Outros (0.4%)'], datasets: [{ data: [56.0, 28.0, 15.6, 0.4], backgroundColor: ['#8d6e63', '#3e2723', '#ffecb3', '#9e9e9e'] }] },
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { position: 'bottom' }, title: { display: true, text: 'Autodeclaração Étnico-Racial (2022)', font: { size: 14 } } } }
+            });
+            
+            createChart('popDistritoChart', {
+                type: 'bar', data: { labels: ['Abrantes', 'Monte Gordo', 'Sede'], datasets: [{ label: 'Crescimento Populacional (%) 2010-2022', data: [68.2, 19.0, 13.9], backgroundColor: ['#d81b60', '#1e88e5', '#ffc107'], borderRadius: 5 }] },
+                options: { indexAxis: 'y', responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false }, title: { display: true, text: 'Crescimento por Distrito (2010-2022)', font: { size: 14 } } } }
+            });
+            
+            // ApexCharts
+            const defaultApexOptions = { chart: { toolbar: { show: false }, zoom: { enabled: false }, fontFamily: 'Inter, sans-serif' }, dataLabels: { enabled: false }, legend: { show: false }, };
+            
+            createApexChart('receitas-totais-chart', { ...defaultApexOptions, series: [{ name: 'Receita (R$)', data: [1000000000, 1100000000, 1150000000, 1200000000, 1380000000, 1320000000, 1410000000, 1600000000, 1820000000, 2050000000, 2270000000] }], chart: { ...defaultApexOptions.chart, height: 280, type: 'area' }, stroke: { curve: 'smooth', width: 3, colors: ['#22c55e'] }, fill: { type: 'gradient', colors: ['#22c55e'], gradient: { shadeIntensity: 1, opacityFrom: 0.7, opacityTo: 0.2, stops: [0, 90, 100] } }, xaxis: { categories: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'] }, yaxis: { labels: { formatter: (val) => formatCurrency(val) } }, tooltip: { y: { formatter: (val) => formatCurrency(val) } }, colors: ['#22c55e'] });
+
+            createApexChart('receitas-proprias-chart', { ...defaultApexOptions, series: [55, 29, 8, 8], chart: { ...defaultApexOptions.chart, height: 280, type: 'donut' }, labels: ['ISS', 'IPTU', 'ITBI', 'Taxas'], colors: ['#6d28d9', '#8b5cf6', '#a78bfa', '#c4b5fd'], legend: { show: true, position: 'bottom' }, tooltip: { y: { formatter: (value) => value.toFixed(1) + "%" } } });
+
+            createApexChart('remuneracao-setor-chart', {
+                ...defaultApexOptions,
+                series: [{ data: [46.7, 14.0, 9.3, 8.0, 4.2, 17.8] }],
+                chart: { ...defaultApexOptions.chart, type: 'bar', height: 350 },
+                plotOptions: { bar: { borderRadius: 4, horizontal: true, distributed: true } },
+                xaxis: { categories: ['Ind. de Transformação', 'Adm. Pública', 'Construção', 'Comércio', 'Transporte', 'Outros Setores'], labels: { formatter: (val) => val + "%" } },
+                tooltip: { y: { title: { formatter: (seriesName, opts) => opts.w.globals.labels[opts.dataPointIndex] }}, x: { formatter: (val) => val + "%" } },
+                colors: ['#8A2BE2', '#C8A2C8', '#6A5ACD', '#CD5C5C', '#20B2AA', '#D3D3D3'],
+                legend: {show: false}
+            });
+
+            createApexChart('comparativo-invest-percapita-chart', { ...defaultApexOptions, series: [{ name: 'Invest. Per Capita (R$)', data: [666, 613, 483, 399, 274, 266] }], chart: { ...defaultApexOptions.chart, type: 'bar', height: 350 }, plotOptions: { bar: { borderRadius: 4, horizontal: false, columnWidth: '60%', distributed: true } }, dataLabels: { enabled: true, formatter: (val) => formatCurrency(val), style: { colors: ["#333"] }, offsetY: -20 }, xaxis: { categories: ['Camaçari', 'Salvador', 'Vit. da Conquista', 'Itabuna', 'Lauro de Freitas', 'Feira de Santana'], labels: { style: { fontSize: '12px', fontWeight: 500 }, rotate: -25 } }, yaxis: { labels: { formatter: (val) => formatCurrency(val) } }, tooltip: { y: { formatter: (val) => formatCurrency(val) } }, colors: ['#6d28d9', '#8b5cf6', '#a78bfa', '#c4b5fd', '#ddd6fe', '#ede9fe'] });
+            
+            createApexChart('comparativo-receita-percapita-chart', {
+                ...defaultApexOptions,
+                series: [{ name: 'Receita Per Capita (R$)', data: [7555, 4650, 4234, 4056, 3508, 3087] }],
+                chart: { ...defaultApexOptions.chart, type: 'bar', height: 350 },
+                plotOptions: { bar: { borderRadius: 4, horizontal: false, columnWidth: '60%', distributed: true } },
+                dataLabels: { enabled: true, formatter: (val) => formatCurrency(val), style: { colors: ["#333"] }, offsetY: -20 },
+                xaxis: {
+                    categories: ['Camaçari', 'Lauro de Freitas', 'Salvador', 'Itabuna', 'Vit. da Conquista', 'Feira de Santana'],
+                    labels: { style: { fontSize: '12px', fontWeight: 500 }, rotate: -25 }
+                },
+                yaxis: { labels: { formatter: (val) => formatCurrency(val) } },
+                tooltip: { y: { formatter: (val) => formatCurrency(val) } },
+                colors: ['#22c55e', '#4ade80', '#86efac', '#bbf7d0', '#dcfce7', '#f0fdf4']
+            });
+
+        });
     </script>
 </body>
 </html>
